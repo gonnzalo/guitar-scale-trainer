@@ -1,75 +1,72 @@
-# React + TypeScript + Vite
+# Guitar Scale Trainer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+Guitar Scale Trainer is a web application designed to help guitarists practice scales and improve their skills. The application provides a user-friendly interface for selecting scales, root notes, CAGED positions, and modes, allowing users to generate random practice combinations.
 
-Currently, two official plugins are available:
+## Features
+- **Scale Selector**: Choose from various scale types, root notes, CAGED positions, and modes with form validation.
+- **Practice View**: Displays the current scale combination and allows users to reveal fretboard patterns and generate new combinations.
+- **Scale Diagram**: Visual representation of the guitar fretboard, highlighting scale patterns and finger positions.
+- **Settings Panel**: Customize the display of note names or intervals, adjust fretboard size, and enable audio playback.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
-
-Note: This will impact Vite dev & build performances.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Project Structure
+```
+guitar-scale-trainer
+├── src
+│   ├── components
+│   │   ├── ScaleSelector.tsx
+│   │   ├── PracticeView.tsx
+│   │   ├── ScaleDiagram.tsx
+│   │   └── SettingsPanel.tsx
+│   ├── types
+│   │   ├── scales.ts
+│   │   └── index.ts
+│   ├── data
+│   │   ├── scaleDefinitions.ts
+│   │   └── notes.ts
+│   ├── utils
+│   │   ├── scaleGenerator.ts
+│   │   └── localStorageHelper.ts
+│   ├── hooks
+│   │   ├── useScalePractice.ts
+│   │   └── useLocalStorage.ts
+│   ├── App.tsx
+│   ├── main.tsx
+│   └── index.css
+├── index.html
+├── package.json
+├── tsconfig.json
+├── tsconfig.node.json
+├── vite.config.ts
+├── .gitignore
+└── README.md
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Installation
+1. Clone the repository:
+   ```
+   git clone https://github.com/yourusername/guitar-scale-trainer.git
+   ```
+2. Navigate to the project directory:
+   ```
+   cd guitar-scale-trainer
+   ```
+3. Install dependencies:
+   ```
+   npm install
+   ```
+4. Start the development server:
+   ```
+   npm run dev
+   ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Usage
+- Open your browser and navigate to `http://localhost:3000` to access the application.
+- Use the Scale Selector to choose your desired scale and settings.
+- Click "Start Practice" to begin practicing with the generated combinations.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Contributing
+Contributions are welcome! Please open an issue or submit a pull request for any improvements or features you'd like to add.
+
+## License
+This project is licensed under the MIT License. See the LICENSE file for more details.
