@@ -8,8 +8,10 @@ interface ScaleDiagramProps {
 
 export function ScaleDiagram({ pattern, settings }: ScaleDiagramProps) {
   const FRETS_TO_SHOW = 5;
-  const startFret = pattern.startFret;
-  const endFret = startFret + FRETS_TO_SHOW;
+  // Add one extra fret on each side for context
+  const startFret = Math.max(0, pattern.startFret - 1);
+  const endFret = pattern.startFret + FRETS_TO_SHOW + 1;
+  const totalFrets = endFret - startFret;
 
   // Create a map for quick lookup of positions
   const positionMap = new Map<string, FretPosition>();
@@ -58,7 +60,7 @@ export function ScaleDiagram({ pattern, settings }: ScaleDiagramProps) {
           {/* Fret numbers */}
           <div className="flex mb-2">
             <div className="w-16 flex-shrink-0"></div>
-            {Array.from({ length: FRETS_TO_SHOW + 1 }, (_, i) => startFret + i).map(fretNum => (
+            {Array.from({ length: totalFrets }, (_, i) => startFret + i).map(fretNum => (
               <div
                 key={fretNum}
                 className="flex-1 text-center text-sm font-semibold text-gray-600 dark:text-gray-400"
@@ -80,7 +82,7 @@ export function ScaleDiagram({ pattern, settings }: ScaleDiagramProps) {
 
                 {/* Frets */}
                 <div className="flex-1 flex">
-                  {Array.from({ length: FRETS_TO_SHOW + 1 }, (_, i) => startFret + i).map(fret => {
+                  {Array.from({ length: totalFrets }, (_, i) => startFret + i).map(fret => {
                     const hasNote = positionMap.has(`${string}-${fret}`);
                     
                     return (
@@ -91,26 +93,22 @@ export function ScaleDiagram({ pattern, settings }: ScaleDiagramProps) {
                           minHeight: '60px'
                         }}
                       >
+
                         {/* Fret line */}
                         {fret !== endFret && (
-                          <div className="absolute top-0 right-0 bottom-0 w-0.5 bg-gray-300 dark:bg-gray-600" />
+                          <div className="absolute top-0 right-0 bottom-0 w-0.5 bg-gray-300 dark:bg-gray-700 z-10" />
                         )}
-                        
-                        {/* Alternating background */}
-                        <div 
-                          className={`absolute inset-0 ${fret % 2 === 0 ? 'bg-gray-50 dark:bg-gray-800/50' : 'bg-white dark:bg-gray-800'}`}
-                        />
 
                         {/* String line */}
                         <div
                           className="absolute top-1/2 left-0 right-0 bg-gray-400 dark:bg-gray-600"
                           style={{
-                            height: `${7 - string}px`,
+                            height: `${string}px`,
                             transform: 'translateY(-50%)'
                           }}
                         />
 
-                        {/* Note marker */}
+                        {/* Note marker - only show if it's a scale note */}
                         {hasNote && (
                           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
                             {renderFretMarker(string, fret)}

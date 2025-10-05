@@ -64,11 +64,15 @@ export function generateScalePattern(
   // Determine the fret range for this position
   const fretRange = getPositionFretRange(rootNote, position);
   
-  // Find all occurrences of scale notes within this fret range
+  // Extend the range by 1 fret on each side for better context
+  const extendedStart = Math.max(0, fretRange.start - 1);
+  const extendedEnd = Math.min(fretRange.end + 1, 15);
+  
+  // Find all occurrences of scale notes within this extended fret range
   const positions: FretPosition[] = [];
   
   for (let string = 1; string <= 6; string++) {
-    for (let fret = fretRange.start; fret <= fretRange.end; fret++) {
+    for (let fret = extendedStart; fret <= extendedEnd; fret++) {
       const noteAtPosition = getNoteAtFret(string, fret);
       
       // Check if this note is in our scale
