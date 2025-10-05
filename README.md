@@ -12,13 +12,15 @@ Guitar Scale Trainer is a **Progressive Web App (PWA)** designed to help guitari
 
 ## Screenshots
 
-### Main View
+<p align="center">
+  <img src="./screenshots/main.png" alt="Main View" width="300">
+  <br>
+</p>
 
-![Main View](./screenshots/main.png)
-
-### Practice Mode
-
-![Practice Mode](./screenshots/practice.png)
+<p align="center">
+  <img src="./screenshots/practice.png" alt="Practice Mode" width="300">
+  <br>
+</p>
 
 ## Features
 
