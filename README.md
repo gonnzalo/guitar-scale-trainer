@@ -8,6 +8,24 @@
 
 Guitar Scale Trainer is a **Progressive Web App (PWA)** designed to help guitarists practice scales and improve their skills. The application provides a user-friendly interface for selecting scales, root notes, CAGED positions, and modes, allowing users to generate random practice combinations.
 
+## Screenshots
+
+### Desktop View
+
+![Desktop View](./screenshots/desktop.png)
+
+### Mobile View
+
+![Mobile View](./screenshots/mobile.png)
+
+### Practice Mode
+
+![Practice Mode](./screenshots/practice.png)
+
+### Dark Mode
+
+![Dark Mode](./screenshots/dark-mode.png)
+
 ## Features
 
 ### Core Features
@@ -123,22 +141,6 @@ npm run test:ui
 ```
 
 See [TESTING.md](TESTING.md) for more details.
-
-## Deployment
-
-The app can be deployed to various platforms. See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed instructions on:
-
-- Vercel (recommended)
-- Netlify
-- GitHub Pages
-- Self-hosting
-
-Quick deploy to Vercel:
-
-```bash
-npm run build
-# Upload dist folder to Vercel
-```
 
 ## Features in Detail
 
