@@ -4,6 +4,8 @@
 [![Tests](https://img.shields.io/badge/tests-passing-brightgreen)](TESTING.md)
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue)](tsconfig.json)
 
+**🎸 [Try it live!](https://guitar-scale-trainer.pages.dev/)**
+
 ## Overview
 
 Guitar Scale Trainer is a **Progressive Web App (PWA)** designed to help guitarists practice scales and improve their skills. The application provides a user-friendly interface for selecting scales, root notes, CAGED positions, and modes, allowing users to generate random practice combinations.
