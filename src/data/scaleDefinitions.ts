@@ -2,12 +2,12 @@ import type { ScaleDefinition, ScaleType, CAGEDPosition, FretPosition } from '..
 
 // Scale intervals (semitones from root)
 export const SCALE_DEFINITIONS: Record<ScaleType, ScaleDefinition> = {
-  'Major': {
+  Major: {
     name: 'Major',
     intervals: [0, 2, 4, 5, 7, 9, 11],
     intervalNames: ['R', '2', 'M3', '4', '5', 'M6', 'M7']
   },
-  'Minor': {
+  Minor: {
     name: 'Minor',
     intervals: [0, 2, 3, 5, 7, 8, 10],
     intervalNames: ['R', '2', 'm3', '4', '5', 'm6', 'm7']
@@ -22,7 +22,7 @@ export const SCALE_DEFINITIONS: Record<ScaleType, ScaleDefinition> = {
     intervals: [0, 3, 5, 7, 10],
     intervalNames: ['R', 'm3', '4', '5', 'm7']
   },
-  'Blues': {
+  Blues: {
     name: 'Blues',
     intervals: [0, 3, 5, 6, 7, 10],
     intervalNames: ['R', 'm3', '4', 'b5', '5', 'm7']
@@ -40,8 +40,11 @@ export const SCALE_DEFINITIONS: Record<ScaleType, ScaleDefinition> = {
 };
 
 // CAGED position patterns for Pentatonic Minor
-export const PENTATONIC_MINOR_CAGED: Record<CAGEDPosition, Omit<FretPosition, 'note' | 'interval'>[]> = {
-  'E': [
+export const PENTATONIC_MINOR_CAGED: Record<
+  CAGEDPosition,
+  Omit<FretPosition, 'note' | 'interval'>[]
+> = {
+  E: [
     { string: 6, fret: 0, finger: 1, isRoot: true },
     { string: 6, fret: 3, finger: 4 },
     { string: 5, fret: 0, finger: 1 },
@@ -55,7 +58,7 @@ export const PENTATONIC_MINOR_CAGED: Record<CAGEDPosition, Omit<FretPosition, 'n
     { string: 1, fret: 0, finger: 1, isRoot: true },
     { string: 1, fret: 3, finger: 4 }
   ],
-  'D': [
+  D: [
     { string: 6, fret: 1, finger: 2 },
     { string: 6, fret: 3, finger: 4 },
     { string: 5, fret: 0, finger: 1, isRoot: true },
@@ -69,7 +72,7 @@ export const PENTATONIC_MINOR_CAGED: Record<CAGEDPosition, Omit<FretPosition, 'n
     { string: 1, fret: 0, finger: 1, isRoot: true },
     { string: 1, fret: 3, finger: 4 }
   ],
-  'C': [
+  C: [
     { string: 6, fret: 0, finger: 1 },
     { string: 6, fret: 3, finger: 4 },
     { string: 5, fret: 1, finger: 2 },
@@ -83,7 +86,7 @@ export const PENTATONIC_MINOR_CAGED: Record<CAGEDPosition, Omit<FretPosition, 'n
     { string: 1, fret: 0, finger: 1 },
     { string: 1, fret: 3, finger: 4 }
   ],
-  'A': [
+  A: [
     { string: 6, fret: 0, finger: 1 },
     { string: 6, fret: 2, finger: 3 },
     { string: 5, fret: 0, finger: 1 },
@@ -97,7 +100,7 @@ export const PENTATONIC_MINOR_CAGED: Record<CAGEDPosition, Omit<FretPosition, 'n
     { string: 1, fret: 0, finger: 1 },
     { string: 1, fret: 2, finger: 3 }
   ],
-  'G': [
+  G: [
     { string: 6, fret: 0, finger: 1 },
     { string: 6, fret: 2, finger: 3 },
     { string: 5, fret: 0, finger: 1 },
@@ -115,7 +118,7 @@ export const PENTATONIC_MINOR_CAGED: Record<CAGEDPosition, Omit<FretPosition, 'n
 
 // CAGED position patterns for Major Scale
 export const MAJOR_SCALE_CAGED: Record<CAGEDPosition, Omit<FretPosition, 'note' | 'interval'>[]> = {
-  'C': [
+  C: [
     { string: 6, fret: 0, finger: 2, isRoot: true },
     { string: 6, fret: 2, finger: 4 },
     { string: 5, fret: 0, finger: 1 },
@@ -131,7 +134,7 @@ export const MAJOR_SCALE_CAGED: Record<CAGEDPosition, Omit<FretPosition, 'note' 
     { string: 1, fret: 0, finger: 1, isRoot: true },
     { string: 1, fret: 2, finger: 3 }
   ],
-  'A': [
+  A: [
     { string: 6, fret: 2, finger: 3 },
     { string: 6, fret: 4, finger: 4 },
     { string: 5, fret: 0, finger: 1, isRoot: true },
@@ -148,7 +151,7 @@ export const MAJOR_SCALE_CAGED: Record<CAGEDPosition, Omit<FretPosition, 'note' 
     { string: 1, fret: 2, finger: 2, isRoot: true },
     { string: 1, fret: 4, finger: 4 }
   ],
-  'G': [
+  G: [
     { string: 6, fret: 0, finger: 1 },
     { string: 6, fret: 2, finger: 3 },
     { string: 5, fret: 0, finger: 1 },
@@ -163,7 +166,7 @@ export const MAJOR_SCALE_CAGED: Record<CAGEDPosition, Omit<FretPosition, 'note' 
     { string: 1, fret: 0, finger: 1 },
     { string: 1, fret: 2, finger: 3 }
   ],
-  'E': [
+  E: [
     { string: 6, fret: 0, finger: 1, isRoot: true },
     { string: 6, fret: 2, finger: 2 },
     { string: 6, fret: 4, finger: 4 },
@@ -181,7 +184,7 @@ export const MAJOR_SCALE_CAGED: Record<CAGEDPosition, Omit<FretPosition, 'note' 
     { string: 1, fret: 2, finger: 2 },
     { string: 1, fret: 4, finger: 4 }
   ],
-  'D': [
+  D: [
     { string: 6, fret: 2, finger: 2 },
     { string: 6, fret: 4, finger: 4 },
     { string: 5, fret: 0, finger: 1 },
@@ -202,7 +205,10 @@ export const MAJOR_SCALE_CAGED: Record<CAGEDPosition, Omit<FretPosition, 'note' 
 };
 
 // Helper function to get pattern for scale type and position
-export function getScalePattern(scaleType: ScaleType, position: CAGEDPosition): Omit<FretPosition, 'note' | 'interval'>[] {
+export function getScalePattern(
+  scaleType: ScaleType,
+  position: CAGEDPosition
+): Omit<FretPosition, 'note' | 'interval'>[] {
   if (scaleType === 'Pentatonic Minor' || scaleType === 'Blues') {
     return PENTATONIC_MINOR_CAGED[position];
   } else if (scaleType === 'Major' || scaleType === 'Pentatonic Major') {

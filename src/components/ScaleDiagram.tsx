@@ -15,7 +15,7 @@ export function ScaleDiagram({ pattern, settings }: ScaleDiagramProps) {
 
   // Create a map for quick lookup of positions
   const positionMap = new Map<string, FretPosition>();
-  pattern.positions.forEach(pos => {
+  pattern.positions.forEach((pos) => {
     const key = `${pos.string}-${pos.fret}`;
     positionMap.set(key, pos);
   });
@@ -34,16 +34,12 @@ export function ScaleDiagram({ pattern, settings }: ScaleDiagramProps) {
 
     return (
       <div
-        className={`fret-marker ${
-          isRoot ? 'fret-marker-root' : 'fret-marker-note'
-        }`}
+        className={`fret-marker ${isRoot ? 'fret-marker-root' : 'fret-marker-note'}`}
         title={`${position.note} - ${position.interval}${fingerNumber ? ` (Finger ${fingerNumber})` : ''}`}
       >
         <div className="text-center">
           <div className="font-bold">{displayText}</div>
-          {fingerNumber && (
-            <div className="text-xs opacity-75">{fingerNumber}</div>
-          )}
+          {fingerNumber && <div className="text-xs opacity-75">{fingerNumber}</div>}
         </div>
       </div>
     );
@@ -54,13 +50,13 @@ export function ScaleDiagram({ pattern, settings }: ScaleDiagramProps) {
       <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
         Fretboard Pattern - {pattern.cagedPosition} Position
       </h3>
-      
+
       <div className="overflow-x-auto">
         <div className="min-w-[600px]">
           {/* Fret numbers */}
           <div className="flex mb-2">
             <div className="w-16 flex-shrink-0"></div>
-            {Array.from({ length: totalFrets }, (_, i) => startFret + i).map(fretNum => (
+            {Array.from({ length: totalFrets }, (_, i) => startFret + i).map((fretNum) => (
               <div
                 key={fretNum}
                 className="flex-1 text-center text-sm font-semibold text-gray-600 dark:text-gray-400"
@@ -72,7 +68,7 @@ export function ScaleDiagram({ pattern, settings }: ScaleDiagramProps) {
 
           {/* Strings and frets */}
           <div className="space-y-2">
-            {[1, 2, 3, 4, 5, 6].map(string => (
+            {[1, 2, 3, 4, 5, 6].map((string) => (
               <div key={string} className="flex items-center">
                 {/* String label */}
                 <div className="w-16 flex-shrink-0 text-sm font-semibold text-gray-700 dark:text-gray-300">
@@ -82,9 +78,9 @@ export function ScaleDiagram({ pattern, settings }: ScaleDiagramProps) {
 
                 {/* Frets */}
                 <div className="flex-1 flex">
-                  {Array.from({ length: totalFrets }, (_, i) => startFret + i).map(fret => {
+                  {Array.from({ length: totalFrets }, (_, i) => startFret + i).map((fret) => {
                     const hasNote = positionMap.has(`${string}-${fret}`);
-                    
+
                     return (
                       <div
                         key={fret}
@@ -93,7 +89,6 @@ export function ScaleDiagram({ pattern, settings }: ScaleDiagramProps) {
                           minHeight: '60px'
                         }}
                       >
-
                         {/* Fret line */}
                         {fret !== endFret && (
                           <div className="absolute top-0 right-0 bottom-0 w-0.5 bg-gray-300 dark:bg-gray-700 z-10" />
@@ -146,7 +141,9 @@ export function ScaleDiagram({ pattern, settings }: ScaleDiagramProps) {
             </div>
             {settings.showFingerNumbers && (
               <div className="flex items-center gap-2">
-                <span className="text-gray-700 dark:text-gray-300">Numbers show finger positions (1-4)</span>
+                <span className="text-gray-700 dark:text-gray-300">
+                  Numbers show finger positions (1-4)
+                </span>
               </div>
             )}
           </div>

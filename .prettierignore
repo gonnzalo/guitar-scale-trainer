@@ -1,0 +1,17 @@
+# Dependencies
+node_modules
+
+# Production
+dist
+build
+
+# Misc
+.DS_Store
+*.log
+
+# Version control
+.git
+
+# IDE
+.vscode
+.idea

@@ -1,6 +1,6 @@
 export type Note = 'A' | 'A#' | 'B' | 'C' | 'C#' | 'D' | 'D#' | 'E' | 'F' | 'F#' | 'G' | 'G#';
 
-export type ScaleType = 
+export type ScaleType =
   | 'Major'
   | 'Minor'
   | 'Pentatonic Major'
@@ -11,7 +11,7 @@ export type ScaleType =
 
 export type CAGEDPosition = 'C' | 'A' | 'G' | 'E' | 'D';
 
-export type Mode = 
+export type Mode =
   | 'Ionian'
   | 'Dorian'
   | 'Phrygian'
@@ -27,7 +27,7 @@ export interface ScaleInterval {
 
 export interface FretPosition {
   string: number; // 1-6 (high E to low E)
-  fret: number;   // 0-15
+  fret: number; // 0-15
   finger?: number; // 1-4
   isRoot?: boolean;
   note?: Note;

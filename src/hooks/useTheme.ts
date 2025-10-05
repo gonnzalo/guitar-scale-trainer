@@ -9,7 +9,7 @@ export function useTheme() {
   useEffect(() => {
     // Apply theme to document
     const root = window.document.documentElement;
-    
+
     if (theme === 'dark') {
       root.classList.add('dark');
     } else {

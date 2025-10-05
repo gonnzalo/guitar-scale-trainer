@@ -17,7 +17,7 @@ export class ErrorBoundary extends Component<Props, State> {
     this.state = {
       hasError: false,
       error: null,
-      errorInfo: null,
+      errorInfo: null
     };
   }
 
@@ -25,7 +25,7 @@ export class ErrorBoundary extends Component<Props, State> {
     return {
       hasError: true,
       error,
-      errorInfo: null,
+      errorInfo: null
     };
   }
 
@@ -33,7 +33,7 @@ export class ErrorBoundary extends Component<Props, State> {
     console.error('Error caught by boundary:', error, errorInfo);
     this.setState({
       error,
-      errorInfo,
+      errorInfo
     });
   }
 
@@ -41,7 +41,7 @@ export class ErrorBoundary extends Component<Props, State> {
     this.setState({
       hasError: false,
       error: null,
-      errorInfo: null,
+      errorInfo: null
     });
     window.location.href = '/';
   };
@@ -101,7 +101,10 @@ export class ErrorBoundary extends Component<Props, State> {
             </div>
 
             <div className="mt-6 text-center text-sm text-gray-500 dark:text-gray-400">
-              <p>If this problem persists, try clearing your browser cache or checking the console for more details.</p>
+              <p>
+                If this problem persists, try clearing your browser cache or checking the console
+                for more details.
+              </p>
             </div>
           </div>
         </div>

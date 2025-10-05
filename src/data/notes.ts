@@ -1,21 +1,19 @@
 import type { Note } from '../types';
 
-export const ALL_NOTES: Note[] = [
-  'A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#'
-];
+export const ALL_NOTES: Note[] = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#'];
 
 export const NOTE_DISPLAY_NAMES: Record<Note, string> = {
-  'A': 'A',
+  A: 'A',
   'A#': 'A♯/B♭',
-  'B': 'B',
-  'C': 'C',
+  B: 'B',
+  C: 'C',
   'C#': 'C♯/D♭',
-  'D': 'D',
+  D: 'D',
   'D#': 'D♯/E♭',
-  'E': 'E',
-  'F': 'F',
+  E: 'E',
+  F: 'F',
   'F#': 'F♯/G♭',
-  'G': 'G',
+  G: 'G',
   'G#': 'G♯/A♭'
 };
 

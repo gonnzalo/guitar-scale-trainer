@@ -1,9 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import type {
-  PracticeSettings,
-  PracticeCombination,
-  PracticeHistory
-} from '../types';
+import type { PracticeSettings, PracticeCombination, PracticeHistory } from '../types';
 import { generateRandomCombination } from '../utils/scaleGenerator';
 import { useLocalStorage } from './useLocalStorage';
 
@@ -23,7 +19,7 @@ export function useScalePractice() {
 
   const [history, setHistory] = useLocalStorage<PracticeHistory[]>(HISTORY_KEY, []);
   const [totalTimeAllTime, setTotalTimeAllTime] = useLocalStorage<number>(TOTAL_TIME_KEY, 0);
-  
+
   const [currentCombination, setCurrentCombination] = useState<PracticeCombination | null>(null);
   const [showPattern, setShowPattern] = useState(false);
   const [practiceStartTime, setPracticeStartTime] = useState<number | null>(null);
@@ -54,7 +50,7 @@ export function useScalePractice() {
 
   // Update settings
   const updateSettings = (newSettings: Partial<PracticeSettings>) => {
-    setSettings(prev => ({ ...prev, ...newSettings }));
+    setSettings((prev) => ({ ...prev, ...newSettings }));
   };
 
   // Generate next combination
@@ -66,18 +62,18 @@ export function useScalePractice() {
         settings.selectedPositions,
         currentCombination || undefined
       );
-      
+
       setCurrentCombination(combination);
       setShowPattern(false);
-      setSessionCount(prev => prev + 1);
-      
+      setSessionCount((prev) => prev + 1);
+
       // Add to history
       const newHistory: PracticeHistory = {
         combination,
         timestamp: Date.now(),
         practiced: false
       };
-      setHistory(prev => [newHistory, ...prev].slice(0, 100)); // Keep last 100 entries
+      setHistory((prev) => [newHistory, ...prev].slice(0, 100)); // Keep last 100 entries
     } catch (error) {
       console.error('Error generating combination:', error);
     }
@@ -85,12 +81,12 @@ export function useScalePractice() {
 
   // Toggle pattern visibility
   const togglePattern = () => {
-    setShowPattern(prev => !prev);
-    
+    setShowPattern((prev) => !prev);
+
     // Mark as practiced when pattern is shown
     if (!showPattern && currentCombination) {
-      setSessionPracticed(prev => prev + 1);
-      setHistory(prev => {
+      setSessionPracticed((prev) => prev + 1);
+      setHistory((prev) => {
         const updated = [...prev];
         if (updated.length > 0) {
           updated[0] = { ...updated[0], practiced: true };
@@ -110,9 +106,9 @@ export function useScalePractice() {
   const resetSession = () => {
     // Add current session time to all-time total
     if (practiceStartTime && practiceTime > 0) {
-      setTotalTimeAllTime(prev => prev + practiceTime);
+      setTotalTimeAllTime((prev) => prev + practiceTime);
     }
-    
+
     setCurrentCombination(null);
     setShowPattern(false);
     setPracticeStartTime(null);
@@ -128,7 +124,7 @@ export function useScalePractice() {
 
   // Calculate practice statistics
   const statistics = {
-    totalPracticed: history.filter(h => h.practiced).length,
+    totalPracticed: history.filter((h) => h.practiced).length,
     totalAttempts: history.length,
     sessionCount,
     sessionPracticed,

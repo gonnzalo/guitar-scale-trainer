@@ -25,7 +25,7 @@ export function SettingsPanel({ settings, onUpdateSettings, onClose }: SettingsP
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
             Display Options
           </h3>
-          
+
           <div className="space-y-3">
             <label className="flex items-center space-x-3 cursor-pointer">
               <input
@@ -35,9 +35,7 @@ export function SettingsPanel({ settings, onUpdateSettings, onClose }: SettingsP
                 className="w-5 h-5 text-primary-600 rounded focus:ring-primary-500"
               />
               <div>
-                <div className="font-medium text-gray-900 dark:text-white">
-                  Show Intervals
-                </div>
+                <div className="font-medium text-gray-900 dark:text-white">Show Intervals</div>
                 <div className="text-sm text-gray-600 dark:text-gray-400">
                   Display interval names (R, M3, 5, etc.) instead of note names
                 </div>
@@ -52,9 +50,7 @@ export function SettingsPanel({ settings, onUpdateSettings, onClose }: SettingsP
                 className="w-5 h-5 text-primary-600 rounded focus:ring-primary-500"
               />
               <div>
-                <div className="font-medium text-gray-900 dark:text-white">
-                  Show Finger Numbers
-                </div>
+                <div className="font-medium text-gray-900 dark:text-white">Show Finger Numbers</div>
                 <div className="text-sm text-gray-600 dark:text-gray-400">
                   Display suggested finger positions (1-4) on the fretboard
                 </div>

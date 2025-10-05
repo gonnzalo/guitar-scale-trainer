@@ -3,7 +3,6 @@ import type { PracticeCombination, PracticeSettings } from '../types';
 import { NOTE_DISPLAY_NAMES } from '../data/notes';
 import { ScaleDiagram } from './ScaleDiagram';
 
-
 interface PracticeViewProps {
   combination: PracticeCombination | null;
   showPattern: boolean;
@@ -30,7 +29,6 @@ export function PracticeView({
   onNext,
   onClearHistory
 }: PracticeViewProps) {
-
   const formatTime = (seconds: number): string => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
@@ -53,7 +51,7 @@ export function PracticeView({
     return () => window.removeEventListener('keydown', handleKeyPress);
   }, [onNext, onTogglePattern]);
 
-    if (!combination) {
+  if (!combination) {
     return (
       <div className="card text-center">
         <div className="py-12">
@@ -82,16 +80,10 @@ export function PracticeView({
 
           {/* Action Buttons */}
           <div className="flex gap-3 justify-center mb-6">
-            <button
-              onClick={onTogglePattern}
-              className="btn-primary px-6 py-3 text-lg"
-            >
+            <button onClick={onTogglePattern} className="btn-primary px-6 py-3 text-lg">
               {showPattern ? '🙈 Hide Pattern' : '👁️ Show Pattern'}
             </button>
-            <button
-              onClick={onNext}
-              className="btn-secondary px-6 py-3 text-lg"
-            >
+            <button onClick={onNext} className="btn-secondary px-6 py-3 text-lg">
               Next →
             </button>
           </div>
@@ -99,7 +91,8 @@ export function PracticeView({
           {/* Keyboard Shortcuts Hint */}
           <div className="text-sm text-gray-500 dark:text-gray-400">
             <kbd className="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Space</kbd> Next •
-            <kbd className="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded ml-2">Enter</kbd> Show/Hide
+            <kbd className="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded ml-2">Enter</kbd>{' '}
+            Show/Hide
           </div>
         </div>
       </div>
@@ -107,10 +100,7 @@ export function PracticeView({
       {/* Scale Diagram */}
       {showPattern && (
         <div className="animate-fade-in">
-          <ScaleDiagram
-            pattern={combination.pattern}
-            settings={settings}
-          />
+          <ScaleDiagram pattern={combination.pattern} settings={settings} />
         </div>
       )}
 
@@ -134,9 +124,7 @@ export function PracticeView({
           </div>
         </div>
 
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-          All-Time Stats
-        </h3>
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">All-Time Stats</h3>
         <div className="grid grid-cols-2 gap-4 mb-6">
           <div className="text-center p-3 bg-primary-50 dark:bg-primary-900/20 rounded-lg">
             <div className="text-2xl font-bold text-primary-600 dark:text-primary-400">

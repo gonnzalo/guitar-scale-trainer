@@ -60,32 +60,33 @@ export function generateScalePattern(
 ): ScalePattern {
   const scaleDefinition = SCALE_DEFINITIONS[scaleType];
   const scaleNotes = calculateScaleNotes(rootNote, scaleDefinition.intervals);
-  
+
   // Determine the fret range for this position
   const fretRange = getPositionFretRange(rootNote, position);
-  
+
   // Extend the range by 1 fret on each side for better context
   const extendedStart = Math.max(0, fretRange.start - 1);
   const extendedEnd = Math.min(fretRange.end + 1, 15);
-  
+
   // Find all occurrences of scale notes within this extended fret range
   const positions: FretPosition[] = [];
-  
+
   for (let string = 1; string <= 6; string++) {
     for (let fret = extendedStart; fret <= extendedEnd; fret++) {
       const noteAtPosition = getNoteAtFret(string, fret);
-      
+
       // Check if this note is in our scale
       if (scaleNotes.includes(noteAtPosition)) {
         const semitoneDistance = getSemitoneDistance(rootNote, noteAtPosition);
         const intervalIndex = scaleDefinition.intervals.indexOf(semitoneDistance);
         const interval = intervalIndex >= 0 ? scaleDefinition.intervalNames[intervalIndex] : '';
         const isRoot = noteAtPosition === rootNote;
-        
+
         // Simple finger assignment (can be improved)
         const relFret = fret - fretRange.start;
-        const finger = relFret === 0 ? 1 : relFret === 1 ? 1 : relFret === 2 ? 2 : relFret === 3 ? 3 : 4;
-        
+        const finger =
+          relFret === 0 ? 1 : relFret === 1 ? 1 : relFret === 2 ? 2 : relFret === 3 ? 3 : 4;
+
         positions.push({
           string,
           fret,
@@ -97,7 +98,7 @@ export function generateScalePattern(
       }
     }
   }
-  
+
   return {
     scaleType,
     cagedPosition: position,
@@ -112,51 +113,54 @@ export function generateScalePattern(
  * The CAGED system moves through positions: E -> D -> C -> A -> G (repeating every 12 frets)
  * Each position overlaps slightly with neighbors
  */
-function getPositionFretRange(rootNote: Note, position: CAGEDPosition): { start: number; end: number } {
+function getPositionFretRange(
+  rootNote: Note,
+  position: CAGEDPosition
+): { start: number; end: number } {
   // Find where the root note appears on the 6th string (low E) between frets 0-11
   const rootOn6thString = findNoteOnString(rootNote, 6, 0, 11);
-  
+
   let startFret: number;
-  
+
   // The positions follow this pattern relative to where the root appears on the 6th string:
   switch (position) {
     case 'E':
       // E shape: root on 6th string - this IS the starting point
       startFret = rootOn6thString;
       break;
-      
+
     case 'D':
       // D shape: comes ~2 frets after E shape
       // Root appears on the 4th string
       startFret = rootOn6thString + 2;
       if (startFret > 12) startFret -= 12;
       break;
-      
+
     case 'C':
       // C shape: comes ~2 frets after D shape (4 frets after E)
       // Root appears on the 5th string
       startFret = rootOn6thString + 3;
       if (startFret > 12) startFret -= 12;
       break;
-      
+
     case 'A':
       // A shape: comes ~2 frets after C shape (5-7 frets after E)
       // Root appears on the 5th string
       startFret = rootOn6thString + 5;
       if (startFret > 12) startFret -= 12;
       break;
-      
+
     case 'G':
       // G shape: comes ~2-3 frets after A shape (7-9 frets after E)
       // Root appears on the 3rd string
       startFret = rootOn6thString + 8;
       if (startFret > 12) startFret -= 12;
       break;
-      
+
     default:
       startFret = 0;
   }
-  
+
   return {
     start: startFret,
     end: Math.min(startFret + 4, 15)
@@ -175,14 +179,12 @@ function findNoteOnString(note: Note, string: number, minFret: number, maxFret: 
   return 0;
 }
 
-
-
 /**
  * Calculate all notes in a scale given the root note and intervals
  */
 export function calculateScaleNotes(rootNote: Note, intervals: number[]): Note[] {
   const rootIndex = ALL_NOTES.indexOf(rootNote);
-  return intervals.map(interval => {
+  return intervals.map((interval) => {
     const noteIndex = (rootIndex + interval) % 12;
     return ALL_NOTES[noteIndex];
   });

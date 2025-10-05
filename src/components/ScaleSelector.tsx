@@ -35,21 +35,21 @@ export function ScaleSelector({ settings, onUpdateSettings, onStartPractice }: S
 
   const toggleScale = (scale: ScaleType) => {
     const newScales = settings.selectedScales.includes(scale)
-      ? settings.selectedScales.filter(s => s !== scale)
+      ? settings.selectedScales.filter((s) => s !== scale)
       : [...settings.selectedScales, scale];
     onUpdateSettings({ selectedScales: newScales });
   };
 
   const toggleNote = (note: Note) => {
     const newNotes = settings.selectedNotes.includes(note)
-      ? settings.selectedNotes.filter(n => n !== note)
+      ? settings.selectedNotes.filter((n) => n !== note)
       : [...settings.selectedNotes, note];
     onUpdateSettings({ selectedNotes: newNotes });
   };
 
   const togglePosition = (position: CAGEDPosition) => {
     const newPositions = settings.selectedPositions.includes(position)
-      ? settings.selectedPositions.filter(p => p !== position)
+      ? settings.selectedPositions.filter((p) => p !== position)
       : [...settings.selectedPositions, position];
     onUpdateSettings({ selectedPositions: newPositions });
   };
@@ -79,7 +79,10 @@ export function ScaleSelector({ settings, onUpdateSettings, onStartPractice }: S
     onStartPractice();
   };
 
-  const totalCombinations = settings.selectedNotes.length * settings.selectedScales.length * settings.selectedPositions.length;
+  const totalCombinations =
+    settings.selectedNotes.length *
+    settings.selectedScales.length *
+    settings.selectedPositions.length;
 
   return (
     <div className="card space-y-6">
@@ -97,7 +100,7 @@ export function ScaleSelector({ settings, onUpdateSettings, onStartPractice }: S
           Scale Types
         </label>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
-          {SCALE_TYPES.map(scale => (
+          {SCALE_TYPES.map((scale) => (
             <label
               key={scale}
               className="flex items-center space-x-2 p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer"
@@ -138,7 +141,7 @@ export function ScaleSelector({ settings, onUpdateSettings, onStartPractice }: S
           </div>
         </div>
         <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
-          {ALL_NOTES.map(note => (
+          {ALL_NOTES.map((note) => (
             <label
               key={note}
               className="flex items-center space-x-2 p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer"
@@ -149,7 +152,9 @@ export function ScaleSelector({ settings, onUpdateSettings, onStartPractice }: S
                 onChange={() => toggleNote(note)}
                 className="w-4 h-4 text-primary-600 rounded focus:ring-primary-500"
               />
-              <span className="text-sm text-gray-900 dark:text-white">{NOTE_DISPLAY_NAMES[note]}</span>
+              <span className="text-sm text-gray-900 dark:text-white">
+                {NOTE_DISPLAY_NAMES[note]}
+              </span>
             </label>
           ))}
         </div>
@@ -161,7 +166,7 @@ export function ScaleSelector({ settings, onUpdateSettings, onStartPractice }: S
           CAGED Positions
         </label>
         <div className="grid grid-cols-5 gap-2">
-          {CAGED_POSITIONS.map(position => (
+          {CAGED_POSITIONS.map((position) => (
             <label
               key={position}
               className={`flex items-center justify-center space-x-2 p-3 rounded border-2 cursor-pointer transition-colors ${
@@ -189,12 +194,16 @@ export function ScaleSelector({ settings, onUpdateSettings, onStartPractice }: S
         </label>
         <select
           value={settings.selectedMode || ''}
-          onChange={(e) => onUpdateSettings({ selectedMode: e.target.value as Mode || undefined })}
+          onChange={(e) =>
+            onUpdateSettings({ selectedMode: (e.target.value as Mode) || undefined })
+          }
           className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500"
         >
           <option value="">No specific mode</option>
-          {MODES.map(mode => (
-            <option key={mode} value={mode}>{mode}</option>
+          {MODES.map((mode) => (
+            <option key={mode} value={mode}>
+              {mode}
+            </option>
           ))}
         </select>
       </div>

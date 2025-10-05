@@ -86,12 +86,11 @@ export function App() {
               onStartPractice={handleStartPractice}
             />
             <div className="card">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                How to Use
-              </h2>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">How to Use</h2>
               <div className="space-y-3 text-gray-700 dark:text-gray-300">
                 <p>
-                  <strong>1.</strong> Select one or more scale types (Major, Minor, Pentatonic, etc.)
+                  <strong>1.</strong> Select one or more scale types (Major, Minor, Pentatonic,
+                  etc.)
                 </p>
                 <p>
                   <strong>2.</strong> Choose which root notes you want to practice
@@ -108,11 +107,15 @@ export function App() {
                   </p>
                   <div className="mt-2 space-y-1">
                     <div className="flex items-center gap-2">
-                      <kbd className="px-2 py-1 bg-white dark:bg-gray-700 rounded text-xs">Space</kbd>
+                      <kbd className="px-2 py-1 bg-white dark:bg-gray-700 rounded text-xs">
+                        Space
+                      </kbd>
                       <span className="text-xs">- Next scale</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <kbd className="px-2 py-1 bg-white dark:bg-gray-700 rounded text-xs">Enter</kbd>
+                      <kbd className="px-2 py-1 bg-white dark:bg-gray-700 rounded text-xs">
+                        Enter
+                      </kbd>
                       <span className="text-xs">- Show/Hide pattern</span>
                     </div>
                   </div>
