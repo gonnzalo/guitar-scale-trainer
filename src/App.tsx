@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ScaleSelector } from './components/ScaleSelector';
 import { PracticeView } from './components/PracticeView';
 import { SettingsPanel } from './components/SettingsPanel';
+import { PWAInstallPrompt } from './components/PWAInstallPrompt';
 import { useScalePractice } from './hooks/useScalePractice';
 import { useTheme } from './hooks/useTheme';
 
@@ -150,6 +151,9 @@ export function App() {
           <p>Practice consistently to build muscle memory and fretboard knowledge!</p>
         </footer>
       </div>
+
+      {/* PWA Install Prompt */}
+      <PWAInstallPrompt />
     </div>
   );
 }

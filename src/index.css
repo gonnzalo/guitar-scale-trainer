@@ -59,4 +59,20 @@
   .fret-marker-other {
     @apply bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400;
   }
+
+  /* PWA Install Prompt Animation */
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+
+  @keyframes slideUp {
+    from {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
 }

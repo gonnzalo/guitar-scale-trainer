@@ -1,19 +1,31 @@
 # Guitar Scale Trainer
 
+[![PWA](https://img.shields.io/badge/PWA-enabled-blue)](PWA.md)
+[![Tests](https://img.shields.io/badge/tests-passing-brightgreen)](TESTING.md)
+[![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue)](tsconfig.json)
+
 ## Overview
 
-Guitar Scale Trainer is a web application designed to help guitarists practice scales and improve their skills. The application provides a user-friendly interface for selecting scales, root notes, CAGED positions, and modes, allowing users to generate random practice combinations.
+Guitar Scale Trainer is a **Progressive Web App (PWA)** designed to help guitarists practice scales and improve their skills. The application provides a user-friendly interface for selecting scales, root notes, CAGED positions, and modes, allowing users to generate random practice combinations.
 
 ## Features
+
+### Core Features
 
 - **Scale Selector**: Choose from various scale types, root notes, CAGED positions, and modes with form validation.
 - **Practice View**: Displays the current scale combination and allows users to reveal fretboard patterns and generate new combinations.
 - **Scale Diagram**: Visual representation of the guitar fretboard, highlighting scale patterns and finger positions.
 - **Settings Panel**: Customize the display of note names or intervals, and toggle finger position numbers.
 - **Progress Tracking**: Automatic tracking of practice sessions, scales practiced, and total practice time with the ability to clear statistics.
-- **Dark Mode**: Toggle between light and dark themes with persistent preferences.
-- **Error Boundary**: Graceful error handling to ensure a smooth user experience.
-- **Local Storage**: All settings, practice history, and statistics are automatically saved locally.
+
+### Modern Features
+
+- **📱 Progressive Web App**: Install on any device, works offline
+- **🌙 Dark Mode**: Toggle between light and dark themes with persistent preferences
+- **⌨️ Keyboard Shortcuts**: Space (next), Enter (show/hide pattern)
+- **♿ Accessible**: ARIA labels, keyboard navigation, focus management
+- **🔄 Error Boundary**: Graceful error handling to ensure a smooth user experience
+- **💾 Local Storage**: All settings, practice history, and statistics are automatically saved locally
 
 ## Project Structure
 
