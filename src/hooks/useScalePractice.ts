@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import type {
   PracticeSettings,
   PracticeCombination,
@@ -9,6 +9,7 @@ import { useLocalStorage } from './useLocalStorage';
 
 const SETTINGS_KEY = 'guitar-scale-practice-settings';
 const HISTORY_KEY = 'guitar-scale-practice-history';
+const TOTAL_TIME_KEY = 'guitar-scale-practice-total-time';
 
 export function useScalePractice() {
   // Load settings from localStorage
@@ -21,11 +22,35 @@ export function useScalePractice() {
   });
 
   const [history, setHistory] = useLocalStorage<PracticeHistory[]>(HISTORY_KEY, []);
+  const [totalTimeAllTime, setTotalTimeAllTime] = useLocalStorage<number>(TOTAL_TIME_KEY, 0);
   
   const [currentCombination, setCurrentCombination] = useState<PracticeCombination | null>(null);
   const [showPattern, setShowPattern] = useState(false);
   const [practiceStartTime, setPracticeStartTime] = useState<number | null>(null);
   const [sessionCount, setSessionCount] = useState(0);
+  const [sessionPracticed, setSessionPracticed] = useState(0);
+  const [practiceTime, setPracticeTime] = useState(0);
+  const timerIntervalRef = useRef<number | null>(null);
+
+  // Timer effect - updates every second
+  useEffect(() => {
+    if (practiceStartTime) {
+      timerIntervalRef.current = window.setInterval(() => {
+        setPracticeTime(Math.floor((Date.now() - practiceStartTime) / 1000));
+      }, 1000);
+
+      return () => {
+        if (timerIntervalRef.current) {
+          clearInterval(timerIntervalRef.current);
+        }
+      };
+    } else {
+      if (timerIntervalRef.current) {
+        clearInterval(timerIntervalRef.current);
+      }
+      setPracticeTime(0);
+    }
+  }, [practiceStartTime]);
 
   // Update settings
   const updateSettings = (newSettings: Partial<PracticeSettings>) => {
@@ -64,6 +89,7 @@ export function useScalePractice() {
     
     // Mark as practiced when pattern is shown
     if (!showPattern && currentCombination) {
+      setSessionPracticed(prev => prev + 1);
       setHistory(prev => {
         const updated = [...prev];
         if (updated.length > 0) {
@@ -82,10 +108,16 @@ export function useScalePractice() {
 
   // Reset practice session
   const resetSession = () => {
+    // Add current session time to all-time total
+    if (practiceStartTime && practiceTime > 0) {
+      setTotalTimeAllTime(prev => prev + practiceTime);
+    }
+    
     setCurrentCombination(null);
     setShowPattern(false);
     setPracticeStartTime(null);
     setSessionCount(0);
+    setSessionPracticed(0);
   };
 
   // Clear history
@@ -98,7 +130,9 @@ export function useScalePractice() {
     totalPracticed: history.filter(h => h.practiced).length,
     totalAttempts: history.length,
     sessionCount,
-    practiceTime: practiceStartTime ? Math.floor((Date.now() - practiceStartTime) / 1000) : 0
+    sessionPracticed,
+    practiceTime,
+    totalTimeAllTime
   };
 
   return {

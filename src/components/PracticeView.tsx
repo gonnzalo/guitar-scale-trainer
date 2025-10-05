@@ -10,12 +10,14 @@ interface PracticeViewProps {
   settings: PracticeSettings;
   statistics: {
     sessionCount: number;
+    sessionPracticed: number;
     practiceTime: number;
     totalPracticed: number;
+    totalAttempts: number;
+    totalTimeAllTime: number;
   };
   onTogglePattern: () => void;
   onNext: () => void;
-  onReset: () => void;
 }
 
 export default function PracticeView({
@@ -24,8 +26,7 @@ export default function PracticeView({
   settings,
   statistics,
   onTogglePattern,
-  onNext,
-  onReset
+  onNext
 }: PracticeViewProps) {
 
   const formatTime = (seconds: number): string => {
@@ -114,14 +115,14 @@ export default function PracticeView({
       {/* Statistics */}
       <div className="card">
         <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-          Session Statistics
+          Current Session
         </h3>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 gap-4 mb-6">
           <div className="text-center p-3 bg-gray-100 dark:bg-gray-700 rounded-lg">
             <div className="text-2xl font-bold text-primary-600 dark:text-primary-400">
               {statistics.sessionCount}
             </div>
-            <div className="text-sm text-gray-600 dark:text-gray-400">Scales</div>
+            <div className="text-sm text-gray-600 dark:text-gray-400">Scales Practiced</div>
           </div>
           <div className="text-center p-3 bg-gray-100 dark:bg-gray-700 rounded-lg">
             <div className="text-2xl font-bold text-primary-600 dark:text-primary-400">
@@ -129,19 +130,23 @@ export default function PracticeView({
             </div>
             <div className="text-sm text-gray-600 dark:text-gray-400">Time</div>
           </div>
-          <div className="text-center p-3 bg-gray-100 dark:bg-gray-700 rounded-lg">
+        </div>
+
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+          All-Time Stats
+        </h3>
+        <div className="grid grid-cols-2 gap-4 mb-6">
+          <div className="text-center p-3 bg-primary-50 dark:bg-primary-900/20 rounded-lg">
             <div className="text-2xl font-bold text-primary-600 dark:text-primary-400">
-              {statistics.totalPracticed}
+              {statistics.totalAttempts}
             </div>
-            <div className="text-sm text-gray-600 dark:text-gray-400">Total</div>
+            <div className="text-sm text-gray-600 dark:text-gray-400">Scales Practiced</div>
           </div>
-          <div className="text-center p-3 bg-gray-100 dark:bg-gray-700 rounded-lg">
-            <button
-              onClick={onReset}
-              className="text-sm text-red-600 dark:text-red-400 hover:underline"
-            >
-              Reset Session
-            </button>
+          <div className="text-center p-3 bg-primary-50 dark:bg-primary-900/20 rounded-lg">
+            <div className="text-2xl font-bold text-primary-600 dark:text-primary-400">
+              {formatTime(statistics.totalTimeAllTime)}
+            </div>
+            <div className="text-sm text-gray-600 dark:text-gray-400">Time</div>
           </div>
         </div>
       </div>

@@ -93,11 +93,17 @@ function App() {
                 <div className="mt-6 p-4 bg-primary-50 dark:bg-primary-900/20 rounded-lg">
                   <p className="text-sm">
                     <strong>💡 Tip:</strong> Use keyboard shortcuts during practice:
-                    <br />
-                    <kbd className="px-2 py-1 bg-white dark:bg-gray-700 rounded text-xs ml-2">Space</kbd> - Next scale
-                    <br />
-                    <kbd className="px-2 py-1 bg-white dark:bg-gray-700 rounded text-xs ml-2">Enter</kbd> - Show/Hide pattern
                   </p>
+                  <div className="mt-2 space-y-1">
+                    <div className="flex items-center gap-2">
+                      <kbd className="px-2 py-1 bg-white dark:bg-gray-700 rounded text-xs">Space</kbd>
+                      <span className="text-xs">- Next scale</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <kbd className="px-2 py-1 bg-white dark:bg-gray-700 rounded text-xs">Enter</kbd>
+                      <span className="text-xs">- Show/Hide pattern</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -116,7 +122,6 @@ function App() {
               statistics={statistics}
               onTogglePattern={togglePattern}
               onNext={nextCombination}
-              onReset={resetSession}
             />
           </div>
         )}
