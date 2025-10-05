@@ -12,7 +12,7 @@ export function useScalePractice() {
   const [settings, setSettings] = useLocalStorage<PracticeSettings>(SETTINGS_KEY, {
     selectedScales: ['Pentatonic Minor'],
     selectedNotes: ['A'],
-    selectedPositions: ['E'],
+    selectedPositions: ['C', 'A', 'G', 'E', 'D'],
     showIntervals: false,
     showFingerNumbers: false
   });
