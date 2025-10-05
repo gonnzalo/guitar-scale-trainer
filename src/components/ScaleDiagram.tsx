@@ -88,11 +88,19 @@ export default function ScaleDiagram({ pattern, settings }: ScaleDiagramProps) {
                         key={fret}
                         className="flex-1 relative"
                         style={{
-                          borderRight: fret !== endFret ? '2px solid #cbd5e0' : 'none',
-                          background: fret % 2 === 0 ? 'rgba(0,0,0,0.02)' : 'transparent',
                           minHeight: '60px'
                         }}
                       >
+                        {/* Fret line */}
+                        {fret !== endFret && (
+                          <div className="absolute top-0 right-0 bottom-0 w-0.5 bg-gray-300 dark:bg-gray-600" />
+                        )}
+                        
+                        {/* Alternating background */}
+                        <div 
+                          className={`absolute inset-0 ${fret % 2 === 0 ? 'bg-gray-50 dark:bg-gray-800/50' : 'bg-white dark:bg-gray-800'}`}
+                        />
+
                         {/* String line */}
                         <div
                           className="absolute top-1/2 left-0 right-0 bg-gray-400 dark:bg-gray-600"

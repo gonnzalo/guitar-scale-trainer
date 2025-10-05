@@ -108,7 +108,7 @@ export default function ScaleSelector({ settings, onUpdateSettings, onStartPract
                 onChange={() => toggleScale(scale)}
                 className="w-4 h-4 text-primary-600 rounded focus:ring-primary-500"
               />
-              <span className="text-sm">{scale}</span>
+              <span className="text-sm text-gray-900 dark:text-white">{scale}</span>
             </label>
           ))}
         </div>
@@ -149,7 +149,7 @@ export default function ScaleSelector({ settings, onUpdateSettings, onStartPract
                 onChange={() => toggleNote(note)}
                 className="w-4 h-4 text-primary-600 rounded focus:ring-primary-500"
               />
-              <span className="text-sm">{NOTE_DISPLAY_NAMES[note]}</span>
+              <span className="text-sm text-gray-900 dark:text-white">{NOTE_DISPLAY_NAMES[note]}</span>
             </label>
           ))}
         </div>
@@ -164,11 +164,11 @@ export default function ScaleSelector({ settings, onUpdateSettings, onStartPract
           {CAGED_POSITIONS.map(position => (
             <label
               key={position}
-              className="flex items-center justify-center space-x-2 p-3 rounded border-2 hover:border-primary-500 cursor-pointer transition-colors"
-              style={{
-                borderColor: settings.selectedPositions.includes(position) ? '#0284c7' : 'transparent',
-                backgroundColor: settings.selectedPositions.includes(position) ? '#e0f2fe' : 'transparent'
-              }}
+              className={`flex items-center justify-center space-x-2 p-3 rounded border-2 cursor-pointer transition-colors ${
+                settings.selectedPositions.includes(position)
+                  ? 'border-primary-600 dark:border-primary-500 bg-primary-100 dark:bg-primary-900/30'
+                  : 'border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 hover:border-primary-500'
+              }`}
             >
               <input
                 type="checkbox"
@@ -176,7 +176,7 @@ export default function ScaleSelector({ settings, onUpdateSettings, onStartPract
                 onChange={() => togglePosition(position)}
                 className="w-4 h-4 text-primary-600 rounded focus:ring-primary-500"
               />
-              <span className="text-lg font-bold">{position}</span>
+              <span className="text-lg font-bold text-gray-900 dark:text-white">{position}</span>
             </label>
           ))}
         </div>

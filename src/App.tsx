@@ -3,6 +3,7 @@ import ScaleSelector from './components/ScaleSelector';
 import PracticeView from './components/PracticeView';
 import SettingsPanel from './components/SettingsPanel';
 import { useScalePractice } from './hooks/useScalePractice';
+import { useTheme } from './hooks/useTheme';
 
 function App() {
   const {
@@ -18,6 +19,7 @@ function App() {
     statistics
   } = useScalePractice();
 
+  const { theme, toggleTheme } = useTheme();
   const [showSettings, setShowSettings] = useState(false);
   const [isPracticing, setIsPracticing] = useState(false);
 
@@ -45,13 +47,22 @@ function App() {
                 Master your scales with randomized practice
               </p>
             </div>
-            <button
-              onClick={() => setShowSettings(!showSettings)}
-              className="btn-secondary"
-              title="Settings"
-            >
-              ⚙️ Settings
-            </button>
+            <div className="flex gap-2">
+              <button
+                onClick={toggleTheme}
+                className="btn-secondary"
+                title={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
+              >
+                {theme === 'light' ? '🌙' : '☀️'}
+              </button>
+              <button
+                onClick={() => setShowSettings(!showSettings)}
+                className="btn-secondary"
+                title="Settings"
+              >
+                ⚙️ Settings
+              </button>
+            </div>
           </div>
         </header>
 
