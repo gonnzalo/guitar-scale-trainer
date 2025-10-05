@@ -6,7 +6,7 @@ interface ScaleDiagramProps {
   settings: PracticeSettings;
 }
 
-export default function ScaleDiagram({ pattern, settings }: ScaleDiagramProps) {
+export function ScaleDiagram({ pattern, settings }: ScaleDiagramProps) {
   const FRETS_TO_SHOW = 5;
   const startFret = pattern.startFret;
   const endFret = startFret + FRETS_TO_SHOW;

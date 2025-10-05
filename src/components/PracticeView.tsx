@@ -1,7 +1,7 @@
 import React from 'react';
 import type { PracticeCombination, PracticeSettings } from '../types';
 import { NOTE_DISPLAY_NAMES } from '../data/notes';
-import ScaleDiagram from './ScaleDiagram';
+import { ScaleDiagram } from './ScaleDiagram';
 
 
 interface PracticeViewProps {
@@ -21,7 +21,7 @@ interface PracticeViewProps {
   onClearHistory: () => void;
 }
 
-export default function PracticeView({
+export function PracticeView({
   combination,
   showPattern,
   settings,

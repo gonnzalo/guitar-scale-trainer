@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import ScaleSelector from './components/ScaleSelector';
-import PracticeView from './components/PracticeView';
-import SettingsPanel from './components/SettingsPanel';
+import { ScaleSelector } from './components/ScaleSelector';
+import { PracticeView } from './components/PracticeView';
+import { SettingsPanel } from './components/SettingsPanel';
 import { useScalePractice } from './hooks/useScalePractice';
 import { useTheme } from './hooks/useTheme';
 
-function App() {
+export function App() {
   const {
     settings,
     updateSettings,
@@ -147,5 +147,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

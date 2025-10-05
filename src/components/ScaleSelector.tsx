@@ -30,7 +30,7 @@ interface ScaleSelectorProps {
   onStartPractice: () => void;
 }
 
-export default function ScaleSelector({ settings, onUpdateSettings, onStartPractice }: ScaleSelectorProps) {
+export function ScaleSelector({ settings, onUpdateSettings, onStartPractice }: ScaleSelectorProps) {
   const [error, setError] = useState('');
 
   const toggleScale = (scale: ScaleType) => {

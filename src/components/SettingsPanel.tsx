@@ -6,7 +6,7 @@ interface SettingsPanelProps {
   onClose: () => void;
 }
 
-export default function SettingsPanel({ settings, onUpdateSettings, onClose }: SettingsPanelProps) {
+export function SettingsPanel({ settings, onUpdateSettings, onClose }: SettingsPanelProps) {
   return (
     <div className="card">
       <div className="flex justify-between items-center mb-4">

@@ -18,7 +18,7 @@ export function useScalePractice() {
     selectedNotes: ['A'],
     selectedPositions: ['E'],
     showIntervals: false,
-    showFingerNumbers: true
+    showFingerNumbers: false
   });
 
   const [history, setHistory] = useLocalStorage<PracticeHistory[]>(HISTORY_KEY, []);
@@ -150,5 +150,3 @@ export function useScalePractice() {
     statistics
   };
 }
-
-export default useScalePractice;
