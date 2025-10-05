@@ -89,7 +89,11 @@ export function ScaleSelector({ settings, onUpdateSettings, onStartPractice }: S
       <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Scale Practice Setup</h2>
 
       {error && (
-        <div className="bg-red-100 dark:bg-red-900 border border-red-400 dark:border-red-600 text-red-700 dark:text-red-200 px-4 py-3 rounded">
+        <div
+          className="bg-red-100 dark:bg-red-900 border border-red-400 dark:border-red-600 text-red-700 dark:text-red-200 px-4 py-3 rounded"
+          role="alert"
+          aria-live="polite"
+        >
           {error}
         </div>
       )}

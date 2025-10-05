@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -19,29 +19,39 @@
   body {
     @apply bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100;
   }
+
+  /* Improved focus styles for accessibility */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary-500;
+  }
+
+  /* Skip to main content link for keyboard users */
+  .skip-link {
+    @apply absolute -top-96 left-4 bg-primary-600 text-white px-4 py-2 rounded-lg focus:top-4 transition-all;
+  }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+    @apply bg-primary-600 hover:bg-primary-700 focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
   }
-  
+
   .btn-secondary {
-    @apply bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-900 dark:text-gray-100 font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+    @apply bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 text-gray-900 dark:text-gray-100 font-medium py-2 px-4 rounded-lg transition-colors duration-200;
   }
-  
+
   .card {
     @apply bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6;
   }
-  
+
   .fret-marker {
     @apply w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold transition-all duration-200;
   }
-  
+
   .fret-marker-root {
     @apply bg-primary-500 text-white;
   }
-  
+
   .fret-marker-note {
     @apply bg-gray-700 dark:bg-gray-600 text-white;
   }

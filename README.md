@@ -58,28 +58,95 @@ guitar-scale-trainer
 ## Installation
 
 1. Clone the repository:
-   ```
+   ```bash
    git clone https://github.com/yourusername/guitar-scale-trainer.git
    ```
 2. Navigate to the project directory:
-   ```
+   ```bash
    cd guitar-scale-trainer
    ```
 3. Install dependencies:
-   ```
+   ```bash
    npm install
    ```
 4. Start the development server:
-   ```
+   ```bash
    npm run dev
    ```
 
+## Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+- `npm run format` - Format code with Prettier
+- `npm test` - Run tests in watch mode
+- `npm run test:ui` - Open visual test UI
+- `npm run test:coverage` - Generate coverage report
+
 ## Technologies
 
-- **React 18** with TypeScript for type-safe component development
-- **Vite** for fast development and optimized builds
-- **Tailwind CSS** for responsive styling with dark mode support
+- **React 19** with React Compiler for automatic optimizations
+- **TypeScript** for type-safe development
+- **Vite** for lightning-fast development and optimized builds
+- **Tailwind CSS v4** for modern, responsive styling
+- **Vitest** + **React Testing Library** for comprehensive testing
+- **ESLint** + **Prettier** for code quality
 - **Local Storage API** for persistent user data
+
+## Testing
+
+The project includes comprehensive unit tests for core functionality:
+
+```bash
+# Run tests
+npm test
+
+# View coverage
+npm run test:coverage
+
+# Visual test UI
+npm run test:ui
+```
+
+See [TESTING.md](TESTING.md) for more details.
+
+## Deployment
+
+The app can be deployed to various platforms. See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed instructions on:
+
+- Vercel (recommended)
+- Netlify
+- GitHub Pages
+- Self-hosting
+
+Quick deploy to Vercel:
+
+```bash
+npm run build
+# Upload dist folder to Vercel
+```
+
+## Features in Detail
+
+### Keyboard Shortcuts
+
+- **Space**: Next scale
+- **Enter**: Show/Hide pattern
+
+### Accessibility
+
+- ARIA labels for screen readers
+- Keyboard navigation support
+- Focus indicators
+- Dark mode with system preference detection
+
+### Data Persistence
+
+- Settings saved automatically
+- Practice history tracked
+- Statistics persisted across sessions
 
 ## Usage
 

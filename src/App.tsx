@@ -52,6 +52,7 @@ export function App() {
                 onClick={toggleTheme}
                 className="btn-secondary"
                 title={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
+                aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
               >
                 {theme === 'light' ? '🌙' : '☀️'}
               </button>
@@ -59,6 +60,8 @@ export function App() {
                 onClick={() => setShowSettings(!showSettings)}
                 className="btn-secondary"
                 title="Settings"
+                aria-label="Toggle settings panel"
+                aria-expanded={showSettings}
               >
                 ⚙️ Settings
               </button>
