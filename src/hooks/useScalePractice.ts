@@ -123,6 +123,7 @@ export function useScalePractice() {
   // Clear history
   const clearHistory = () => {
     setHistory([]);
+    setTotalTimeAllTime(0);
   };
 
   // Calculate practice statistics

@@ -18,6 +18,7 @@ interface PracticeViewProps {
   };
   onTogglePattern: () => void;
   onNext: () => void;
+  onClearHistory: () => void;
 }
 
 export default function PracticeView({
@@ -26,7 +27,8 @@ export default function PracticeView({
   settings,
   statistics,
   onTogglePattern,
-  onNext
+  onNext,
+  onClearHistory
 }: PracticeViewProps) {
 
   const formatTime = (seconds: number): string => {
@@ -148,6 +150,15 @@ export default function PracticeView({
             </div>
             <div className="text-sm text-gray-600 dark:text-gray-400">Time</div>
           </div>
+        </div>
+
+        <div className="flex justify-center">
+          <button
+            onClick={onClearHistory}
+            className="btn-secondary text-sm text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20"
+          >
+            Clear All-Time Stats
+          </button>
         </div>
       </div>
     </div>

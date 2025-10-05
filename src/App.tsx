@@ -14,6 +14,7 @@ function App() {
     nextCombination,
     startPractice,
     resetSession,
+    clearHistory,
     statistics
   } = useScalePractice();
 
@@ -122,6 +123,7 @@ function App() {
               statistics={statistics}
               onTogglePattern={togglePattern}
               onNext={nextCombination}
+              onClearHistory={clearHistory}
             />
           </div>
         )}
