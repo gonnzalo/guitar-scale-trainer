@@ -39,12 +39,12 @@ export function App() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <header className="mb-8">
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-start">
             <div>
-              <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
+              <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-2">
                 🎸 Guitar Scale Trainer
               </h1>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">
                 Master your scales with randomized practice
               </p>
             </div>
@@ -64,7 +64,8 @@ export function App() {
                 aria-label="Toggle settings panel"
                 aria-expanded={showSettings}
               >
-                ⚙️ Settings
+                <span className="hidden sm:inline">⚙️ Settings</span>
+                <span className="sm:hidden">⚙️</span>
               </button>
             </div>
           </div>

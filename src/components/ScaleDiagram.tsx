@@ -47,15 +47,15 @@ export function ScaleDiagram({ pattern, settings }: ScaleDiagramProps) {
 
   return (
     <div className="card">
-      <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+      <h3 className="text-lg md:text-xl font-semibold text-gray-900 dark:text-white mb-4">
         Fretboard Pattern - {pattern.cagedPosition} Position
       </h3>
 
       <div className="overflow-x-auto">
-        <div className="min-w-[600px]">
+        <div className="min-w-[320px] md:min-w-[600px]">
           {/* Fret numbers */}
           <div className="flex mb-2">
-            <div className="w-16 flex-shrink-0"></div>
+            <div className="w-12 md:w-16 flex-shrink-0"></div>
             {Array.from({ length: totalFrets }, (_, i) => startFret + i).map((fretNum) => (
               <div
                 key={fretNum}
@@ -71,7 +71,7 @@ export function ScaleDiagram({ pattern, settings }: ScaleDiagramProps) {
             {[1, 2, 3, 4, 5, 6].map((string) => (
               <div key={string} className="flex items-center">
                 {/* String label */}
-                <div className="w-16 flex-shrink-0 text-sm font-semibold text-gray-700 dark:text-gray-300">
+                <div className="w-12 md:w-16 flex-shrink-0 text-xs md:text-sm font-semibold text-gray-700 dark:text-gray-300">
                   {STANDARD_TUNING[string - 1]}
                   <span className="text-xs text-gray-500 ml-1">({string})</span>
                 </div>
@@ -86,7 +86,7 @@ export function ScaleDiagram({ pattern, settings }: ScaleDiagramProps) {
                         key={fret}
                         className="flex-1 relative"
                         style={{
-                          minHeight: '60px'
+                          minHeight: '48px'
                         }}
                       >
                         {/* Fret line */}
