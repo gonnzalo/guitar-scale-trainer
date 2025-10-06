@@ -168,6 +168,10 @@ See [TESTING.md](TESTING.md) for more details.
 - Track your progress with automatic session statistics and all-time totals.
 - Clear your statistics anytime from the practice view.
 
+## Known Issues
+
+- **Extended Note Display**: The scale diagrams currently show notes from an extended fret range (1 fret beyond the position boundaries on each side). This provides helpful context but may display notes that technically belong to adjacent CAGED positions. Future improvement: Add a lighter color/opacity to notes outside the strict position boundaries to visually distinguish them from the core position notes.
+
 ## Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request for any improvements or features you'd like to add.
