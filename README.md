@@ -3,6 +3,9 @@
 [![PWA](https://img.shields.io/badge/PWA-enabled-blue)](PWA.md)
 [![Tests](https://img.shields.io/badge/tests-passing-brightgreen)](TESTING.md)
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue)](tsconfig.json)
+[![Vibe Coded](https://img.shields.io/badge/vibe-coded-ff69b4)](#)
+
+> ✨ This project was **vibe-coded**
 
 **🎸 [Try it live!](https://guitar-scale-trainer.pages.dev/)**
 
